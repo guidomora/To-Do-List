@@ -1,6 +1,39 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+
 .task-list-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 15px;
+}
+
+.clear-button{
+    height: 36px;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 7px;
+    background: #118ab2;
+    color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-left: 5px;
+}
+
+.position-owl {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+/* -------- buhito--------- */
+
+.buhito {
+    height: 70px;
+    width: 70px;
 }

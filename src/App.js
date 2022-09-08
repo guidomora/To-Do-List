@@ -9,7 +9,7 @@ function App() {
         {/* una imagen aca */}
       </div>
       <div className="tareas-lista-principal">
-        <h1> Mis tareas </h1>
+        <h1 className="titulo"> Mis tareas </h1>
         <TaskList />
       </div>
     </div>

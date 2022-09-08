@@ -4,13 +4,24 @@
   box-sizing: border-box;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Manrope:wght@200;300&display=swap');
+
 /* lista de tareas */
 
 .tareas-lista-principal {
   width: 600px;
   min-height: 500px;
-  background-color: grey;
+  background-color: #e5e5e5;
   padding: 25px;
   margin: 10px;
   border-radius: 26px;
+  border: 1px solid;
+  font-family: 'Comfortaa', cursive;
+}
+
+.titulo {
+  text-align: center;
+  color: #fca311;
+  margin: 15px;
+  padding: 15px;
 }

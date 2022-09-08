@@ -1,12 +1,19 @@
 .task-input {
+    height: 35px;
     width: 350px;
     font-size: 18px;
+    border-radius: 5px;
+    border: 1px solid;
 }
 
 .task-button {
-    font-size: 18px;
+    height: 36px;
+    font-size: 16px;
     cursor: pointer;
-    padding: 16px;
-    background: black;
+    padding: 7px;
+    background: #118ab2;
     color: white;
+    border-radius: 5px;
+    border: 1px solid black;
+    margin-left: 5px;
 }
