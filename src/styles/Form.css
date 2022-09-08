@@ -1,0 +1,12 @@
+.task-input {
+    width: 350px;
+    font-size: 18px;
+}
+
+.task-button {
+    font-size: 18px;
+    cursor: pointer;
+    padding: 16px;
+    background: black;
+    color: white;
+}

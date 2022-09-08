@@ -1,0 +1,16 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+/* lista de tareas */
+
+.tareas-lista-principal {
+  width: 600px;
+  min-height: 500px;
+  background-color: grey;
+  padding: 25px;
+  margin: 10px;
+  border-radius: 26px;
+}
