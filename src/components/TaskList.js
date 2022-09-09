@@ -21,7 +21,7 @@ function TaskList() {
     setTasks(updatedTasks);
   };
 
-  const completeTask = (id) => {
+  let completeTask = (id) => {
     const updatedTasks = tasks.map((task) => {
       if (task.id === id) {
         task.completed = !task.completed;
@@ -32,17 +32,25 @@ function TaskList() {
     setTasks(updatedTasks);
   };
 
-  const checkStatus = console.log(tasks.every(task => task.completed == true)) 
-  
+  const checkStatus = tasks.every(task => task.completed === true)
+  console.log(checkStatus)
+
+  const principio = () => {
+    if (tasks.length == 0)
+    tasks.completed = false
+  };
+ 
 
   const clearAll = () => {
+    tasks.completed = false
     setTasks([]);
   };
+  console.log(tasks.completed)
 
   return (
     <div className="container">
       <div>
-        <Form onSubmit={addTask} />
+        <Form onSubmit={addTask}  />
         <div className="tasks-list-container">
           {tasks.map((task) => (
             <Tasks
@@ -64,7 +72,7 @@ function TaskList() {
         </div>
       </div>
       <div>
-        { checkStatus == true ? (alert("hola")) : (<></>)}
+        {checkStatus === true ? (alert("completaste tus tareas!"))   : (<></>)}
       </div>
       <div className="position-owl">
         <Owl imagen="buhito" />
@@ -74,3 +82,6 @@ function TaskList() {
 }
 
 export default TaskList;
+
+
+// checkStatus == true ? (alert("hola")) : (<></>)
