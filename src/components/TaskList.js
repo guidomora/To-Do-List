@@ -3,6 +3,7 @@ import Form from "./Form";
 import "../styles/TaskList.css";
 import Tasks from "./Tasks";
 import Owl from "./Owl";
+import { AiFillHourglass } from "react-icons/ai";
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
@@ -26,9 +27,13 @@ function TaskList() {
         task.completed = !task.completed;
       }
       return task;
+      
     });
     setTasks(updatedTasks);
   };
+
+  const checkStatus = console.log(tasks.every(task => task.completed == true)) 
+  
 
   const clearAll = () => {
     setTasks([]);
@@ -57,6 +62,9 @@ function TaskList() {
             <></>
           )}
         </div>
+      </div>
+      <div>
+        { checkStatus == true ? (alert("hola")) : (<></>)}
       </div>
       <div className="position-owl">
         <Owl imagen="buhito" />
