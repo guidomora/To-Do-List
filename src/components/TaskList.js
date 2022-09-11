@@ -3,10 +3,22 @@ import Form from "./Form";
 import "../styles/TaskList.css";
 import Tasks from "./Tasks";
 import Owl from "./Owl";
-import { AiFillHourglass } from "react-icons/ai";
+import Swal from 'sweetalert2'
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
+
+
+// Funcion para que no salte el cartel cuando la lista de tareas esta vacia
+
+  function principio () {
+    if (tasks.length === 0)
+    tasks.completed = false
+  }; 
+  principio()
+
+  // Agregar tarea
+
   const addTask = (task) => {
     console.log(task);
     if (task.text.trim()) {
@@ -14,12 +26,18 @@ function TaskList() {
       const updatedTasks = [task, ...tasks];
       setTasks(updatedTasks);
     }
+    
+
   };
+
+  // Borrar tarea
 
   const deleteTask = (id) => {
     const updatedTasks = tasks.filter((task) => task.id !== id);
     setTasks(updatedTasks);
   };
+
+  // completar tarea
 
   let completeTask = (id) => {
     const updatedTasks = tasks.map((task) => {
@@ -35,12 +53,27 @@ function TaskList() {
   const checkStatus = tasks.every(task => task.completed === true)
   console.log(checkStatus)
 
-  const principio = () => {
-    if (tasks.length == 0)
-    tasks.completed = false
-  };
+  
+  // alerta que sale cuando completaste todas las tareas y con la opcion de vacia la lista
+
+  const tasksFinished = () => {
+    Swal.fire({
+      title: 'Terminaste todas tus tareas!',
+      text: "Al confirmar se van a borrar todas!",
+      icon: 'success',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, borrarlas!',
+    }).then((result) => {
+      if (result.isConfirmed) {
+         clearAll()
+      }
+    })
+  }
  
 
+  // Boton para vaciar lista
   const clearAll = () => {
     tasks.completed = false
     setTasks([]);
@@ -72,7 +105,7 @@ function TaskList() {
         </div>
       </div>
       <div>
-        {checkStatus === true ? (alert("completaste tus tareas!"))   : (<></>)}
+        {checkStatus === true ? (tasksFinished())   : (<></>)}
       </div>
       <div className="position-owl">
         <Owl imagen="buhito" />
