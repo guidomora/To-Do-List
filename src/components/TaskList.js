@@ -3,19 +3,19 @@ import Form from "./Form";
 import "../styles/TaskList.css";
 import Tasks from "./Tasks";
 import Owl from "./Owl";
-import Swal from 'sweetalert2'
+import Swal from "sweetalert2";
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
 
-
-// Funcion para que no salte el cartel cuando la lista de tareas esta vacia
-
-  function principio () {
-    if (tasks.length === 0)
-    tasks.completed = false
-  }; 
-  principio()
+  // Funcion para que no salte el cartel cuando la lista de tareas esta vacia
+// const checkTasks = () => {
+//   if (tasks.length === 0) {
+//     setTasks(tasks.completed = false)
+//     console.log(tasks.completed)
+//   }
+// }
+// checkTasks()
 
   // Agregar tarea
 
@@ -26,8 +26,6 @@ function TaskList() {
       const updatedTasks = [task, ...tasks];
       setTasks(updatedTasks);
     }
-    
-
   };
 
   // Borrar tarea
@@ -41,49 +39,46 @@ function TaskList() {
 
   let completeTask = (id) => {
     const updatedTasks = tasks.map((task) => {
-      if (task.id === id) {
+      if (task.id === id ) {
         task.completed = !task.completed;
       }
       return task;
-      
     });
     setTasks(updatedTasks);
   };
 
-  const checkStatus = tasks.every(task => task.completed === true)
-  console.log(checkStatus)
+  const checkStatus = tasks.every((task) => task.completed === true);
 
-  
+  console.log(checkStatus);
+
   // alerta que sale cuando completaste todas las tareas y con la opcion de vacia la lista
 
   const tasksFinished = () => {
     Swal.fire({
-      title: 'Terminaste todas tus tareas!',
+      title: "Terminaste todas tus tareas!",
       text: "Al confirmar se van a borrar todas!",
-      icon: 'success',
+      icon: "success",
       showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Si, borrarlas!',
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Si, borrarlas!",
     }).then((result) => {
       if (result.isConfirmed) {
-         clearAll()
+        clearAll();
       }
-    })
-  }
- 
+    });
+  };
 
   // Boton para vaciar lista
   const clearAll = () => {
-    tasks.completed = false
     setTasks([]);
   };
-  console.log(tasks.completed)
+
 
   return (
     <div className="container">
       <div>
-        <Form onSubmit={addTask}  />
+        <Form onSubmit={addTask} />
         <div className="tasks-list-container">
           {tasks.map((task) => (
             <Tasks
@@ -104,9 +99,7 @@ function TaskList() {
           )}
         </div>
       </div>
-      <div>
-        {checkStatus === true ? (tasksFinished())   : (<></>)}
-      </div>
+      <div>{checkStatus === true ? tasksFinished() : <></>}</div>
       <div className="position-owl">
         <Owl imagen="buhito" />
       </div>
@@ -116,5 +109,3 @@ function TaskList() {
 
 export default TaskList;
 
-
-// checkStatus == true ? (alert("hola")) : (<></>)
