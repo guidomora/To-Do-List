@@ -33,3 +33,8 @@
     width: 25px;
     margin: 5px;
 }
+
+.tasks-icon:hover {
+    transform: translateY(-3%);
+    color: rgb(206, 15, 15); 
+}

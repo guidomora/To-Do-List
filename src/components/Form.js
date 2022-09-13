@@ -20,7 +20,6 @@ function Form(props) {
     props.onSubmit(newTask);
   };
 
-
   return (
     <div>
       <form className="task-form" onSubmit={sendControl}>
